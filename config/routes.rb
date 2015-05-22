@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  
+  
   root 'static_pages#index'
 
   get 'admin' => 'admin_workers#index'
 
   devise_for :admin_workers
-  
-  
+  devise_for :teachers
+  devise_for :students
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
