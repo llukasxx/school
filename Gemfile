@@ -19,6 +19,7 @@ gem 'jbuilder',             '2.2.3'
 gem 'rails-html-sanitizer', '1.0.1'
 gem 'therubyracer', :platforms => :ruby
 gem 'sdoc',                 '0.4.0', group: :doc
+gem "factory_girl_rails", "~> 4.0"
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

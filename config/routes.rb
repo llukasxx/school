@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  
-  
   root 'static_pages#index'
 
   get 'admin' => 'admin_workers#index'
+
+  scope '/admin' do
+    resources :teachers, :comments
+  end
 
   devise_for :admin_workers
   devise_for :teachers
