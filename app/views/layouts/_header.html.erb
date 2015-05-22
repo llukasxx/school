@@ -3,8 +3,13 @@
 	  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		    <ul class="nav navbar-nav col-md-12">
 		    	<li><%= link_to "", '#', class: "glyphicon glyphicon-home", id: "logo" %></li>
-		    	<li class="goright"><%= link_to "Zaloguj", '#' %></li>
-		      <li class="goright"><%= link_to "Strona Glowna",   '#' %></li>
+		      <% if user_signed_in? %>
+					  <li class="goright"><%= link_to 'Profil', edit_user_registration_path, :class => 'navbar-link' %></li>
+					  <li class="goright"><%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+					<% else %>
+					  <li class="goright"><%= link_to "Zaloguj", new_user_session_path, :class => 'navbar-link'  %></li>
+					<% end %>
+					<li class="goright"><%= link_to "Strona Glowna", root_path %></li>
 		    </ul>
 	  </nav>
 	</header>
