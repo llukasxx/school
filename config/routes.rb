@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin_workers#index'
 
   scope '/admin' do
-    resources :teachers, :comments
+    resources :teachers
   end
 
   devise_for :admin_workers
