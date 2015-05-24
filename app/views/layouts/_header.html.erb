@@ -2,11 +2,14 @@
 	<header>
 	  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		    <ul class="nav navbar-nav col-md-12">
-		    	<li><%= link_to "", '#', class: "glyphicon glyphicon-home", id: "logo" %></li>
-						<li class="goright"><%= link_to "Log in", '#', :class => 'navbar-link'  %></li>
-						<li class="goright"><%= link_to "Log out", '#', :class => 'navbar-link'  %></li>
+		    	<li><%= link_to "", root_path, class: "glyphicon glyphicon-home", id: "logo" %></li>
+		    	<% if current_user.nil? %>
+						<li class="goright"><%= link_to "Log in", new_user_session_path, :class => 'navbar-link'  %></li>
+					<% else %>
+						<li class="goright"><%= link_to "Log out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
 						<li class="goright"><%= link_to 'Profile', '#', :class => 'navbar-link' %></li>
-					<li class="goright"><%= link_to "Home page", "#" %></li>
+					<% end %>
+					<li class="goright"><%= link_to "Home page", root_path %></li>
 					
 		    </ul>
 	  </nav>
