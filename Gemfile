@@ -21,6 +21,7 @@ gem 'therubyracer', :platforms => :ruby
 gem 'sdoc',                 '0.4.0', group: :doc
 gem "factory_girl_rails", "~> 4.0"
 gem 'capybara'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

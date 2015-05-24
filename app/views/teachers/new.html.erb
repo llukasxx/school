@@ -1,2 +1,9 @@
-<h1>Teachers#new</h1>
-<p>Find me in app/views/teachers/new.html.erb</p>
+<%= link_to "<< Back", admin_teachers_path, role: "botton", class: "btn btn-primary btn-lg"%> <br \> <br \> 
+<%= simple_form_for @teacher, :url => admin_teachers_path do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit %>
+<% end %>

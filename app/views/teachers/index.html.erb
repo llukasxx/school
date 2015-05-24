@@ -1,28 +1,35 @@
+<%= link_to "<< Back", admin_path, role: "botton", class: "btn btn-primary btn-lg"%>
+<%= link_to "Add new teacher", new_admin_teacher_path, role: "botton", class: "btn btn-info btn-lg go-right"%>
+<br />
+<br />
 <div class="panel panel-info">
   <!-- Default panel contents -->
-  <div class="panel-heading">Teachers list</div>
-  <div class="panel-body">
-    <p>List of all teachers</p>
-  </div>
+  <div class="panel-heading table-head">Teachers list</div>
 
   <!-- Table -->
   <table class="table">
-    <thead>
+    <thead class="table-head">
     	<td>First Name</td>
     	<td>Last Name</td>
     	<td>Email</td>
     	<td>Action</td>
     </thead>
 
-    <tbody>
-		     	<td>name</td>
-		    	<td>surname</td>
-		    	<td>t.email</td>
-		    	<td>No actions yet</td>
-
-
-	  		<p>There are no teachers in the database</p>
-
-	  </tbody>
+    <% if !@teachers.empty? %>
+      <% @teachers.each do |t|%>
+        <tbody>
+          <td><%= t.first_name %></td>
+          <td><%= t.last_name %></td>
+          <td><%= t.email %></td>
+          <td>
+            <%= link_to "Show", admin_teacher_path(t), role: "button", class: "btn btn-success btn-sm"%>
+            <%= link_to "Edit", edit_admin_teacher_path(t), role: "button", class: "btn btn-warning btn-sm"%>
+            <%= link_to "Delete", "#", role: "button", class: "btn btn-danger btn-sm"%>
+          </td>
+        </tbody>
+      <% end %>
+    <% else %>
+      <p>No teachers in the database</p>
+    <% end %>
   </table>
 </div>
