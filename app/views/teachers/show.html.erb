@@ -1,2 +1,13 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<%= link_to "<< Back", admin_teachers_path, role: "botton", class: "btn btn-primary btn-lg"%> <br> <br>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading table-head">Teacher info</div>
+
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item"><b>First name:</b> <%= @teacher.first_name %></li>
+    <li class="list-group-item"><b>Last name:</b> <%= @teacher.last_name %></li>
+    <li class="list-group-item"><b>Email:</b> <%= @teacher.email %></li>
+  </ul>
+</div>

@@ -24,7 +24,7 @@
           <td>
             <%= link_to "Show", admin_teacher_path(t), role: "button", class: "btn btn-success btn-sm"%>
             <%= link_to "Edit", edit_admin_teacher_path(t), role: "button", class: "btn btn-warning btn-sm"%>
-            <%= link_to "Delete", "#", role: "button", class: "btn btn-danger btn-sm"%>
+            <%= link_to "Delete", admin_teacher_path(t), method: :delete, data: { confirm: 'Are you sure?' }, role: "button", class: "btn btn-danger btn-sm", id: "teacher#{t.id}"%>
           </td>
         </tbody>
       <% end %>
