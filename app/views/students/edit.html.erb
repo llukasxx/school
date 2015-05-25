@@ -1,2 +1,7 @@
-<h1>Students#edit</h1>
-<p>Find me in app/views/students/edit.html.erb</p>
+<%= link_to "<< Back", admin_students_path, role: "botton", class: "btn btn-primary btn-lg"%> <br \> <br \> 
+<%= simple_form_for @student, url: admin_student_path do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.button :submit %>
+<% end %>

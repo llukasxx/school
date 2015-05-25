@@ -1,2 +1,35 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<%= link_to "<< Back", admin_path, role: "botton", class: "btn btn-primary btn-lg"%>
+<%= link_to "Add new student", new_admin_student_path, role: "botton", class: "btn btn-info btn-lg go-right"%>
+<br />
+<br />
+<div class="panel panel-warning">
+  <!-- Default panel contents -->
+  <div class="panel-heading table-head">Students list</div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead class="table-head">
+    	<td>First Name</td>
+    	<td>Last Name</td>
+    	<td>Email</td>
+    	<td>Action</td>
+    </thead>
+
+    <% if !@students.empty? %>
+      <% @students.each do |s|%>
+        <tbody>
+          <td><%= s.first_name %></td>
+          <td><%= s.last_name %></td>
+          <td><%= s.email %></td>
+          <td>
+            <%= link_to "Show", admin_student_path(s), role: "button", class: "btn btn-success btn-sm"%>
+            <%= link_to "Edit", edit_admin_student_path(s), role: "button", class: "btn btn-warning btn-sm"%>
+            <%= link_to "Delete", admin_student_path(s), method: :delete, role: "button", class: "btn btn-danger btn-sm", id: "student#{s.id}"%>
+          </td>
+        </tbody>
+      <% end %>
+    <% else %>
+      <p>No students in the database</p>
+    <% end %>
+  </table>
+</div>
