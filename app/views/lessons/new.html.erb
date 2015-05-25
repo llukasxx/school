@@ -1,0 +1,16 @@
+<h1>New Lesson</h1>
+
+<%= simple_form_for @lesson, url: admin_lessons_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', admin_lessons_path %>
