@@ -1,8 +1,9 @@
 <h2>Welcome to the admin panel</h2>
 
-<p>Here you can manage Teachers/Students/..</p>
+<p>Here you can manage Teachers/Students/Lessons</p>
 
 <ul class="nav nav-pills">
-  <li role="presentation"><%= link_to "Teachers", admin_teachers_path %></li>
-  <li role="presentation"><%= link_to "Students", admin_students_path %></li>
+  <li><%= link_to "Teachers", admin_teachers_path, class: "btn btn-primary" %></li>
+  <li><%= link_to "Students", admin_students_path, class: "btn btn-warning" %></li>
+  <li><%= link_to "Lessons", admin_lessons_path, class: "btn btn-success" %></li>
 </ul>

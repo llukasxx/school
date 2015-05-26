@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe "lessons/new", type: :view do
   before(:each) do
     assign(:lesson, Lesson.new(
-      :name => "MyString",
-      :teacher_id => 1
+      :name => "MyString"
     ))
   end
 
