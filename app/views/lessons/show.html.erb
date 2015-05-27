@@ -1,7 +1,17 @@
 <%= link_to "<< Back", admin_lessons_path, role: "botton", class: "btn btn-primary btn-lg"%> <br> <br>
-<p>
-  <strong>Name:</strong>
-  <%= @lesson.name %>
-</p>
 
+<div class="panel panel-success">
+	<div class="panel-heading table-head">
+		Lesson info
+	</div>
+	<ul class="list-group">
+	  <li class="list-group-item">Name: <%= @lesson.name%></li>
+	  <li class="list-group-item">
+	  	Teachers: <% @lesson.teachers.each do |l|%>
+	  							<%= link_to "#{l.first_name}, #{l.last_name}", admin_teacher_path(l)%>
+	  						<% end %>
+	  </li>
+	</ul>
+
+</div>
 <%= link_to 'Edit', edit_admin_lesson_path(@lesson), class: "btn btn-warning" %>

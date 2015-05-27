@@ -1,0 +1,12 @@
+<%= link_to "<< Back", admin_groups_path, role: "botton", class: "btn btn-primary btn-lg"%> <br> <br>
+
+<div class="panel panel-danger">
+	<div class="panel-heading table-head">
+		Group info
+	</div>
+	<ul class="list-group">
+	  <li class="list-group-item">Name: <%= @group.name%></li>
+	</ul>
+
+</div>
+<%= link_to 'Edit', edit_admin_group_path(@group), class: "btn btn-warning", role: "button" %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   root 'static_pages#index'
 
   devise_for :users
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
     resources :teachers
     resources :students
     resources :lessons
+    resources :groups
   end
   devise_for :teachers, :skip => :sessions
   devise_for :students, :skip => :sessions

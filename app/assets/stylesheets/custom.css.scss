@@ -8,15 +8,11 @@
     font-size: 3.2em;
 }
 
-@media (max-width: 768px) {
-    body {
-        padding-top: 90px;
-        padding-bottom: 150px;
-    }
-    header nav ul {
-    text-align: center
-    }
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
+
 
 
 /* Header */
@@ -41,4 +37,3 @@ li.goright {
 }
 
 /* Footer */
-

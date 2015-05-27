@@ -1,0 +1,16 @@
+<h1>New Group</h1>
+
+<%= simple_form_for @group, url: admin_groups_path do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-danger", role: "button" %>
+    <%= link_to '<< Back', admin_groups_path, class: "btn btn-primary go-right", role: "button" %>
+  </div>
+<% end %>
+
+

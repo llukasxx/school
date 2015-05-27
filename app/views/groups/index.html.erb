@@ -1,0 +1,32 @@
+<%= link_to "<< Back", admin_path, role: "botton", class: "btn btn-primary btn-lg"%>
+<br><br>
+
+<div class="panel panel-danger">
+  <!-- Default panel contents -->
+  <div class="panel-heading table-head">Listing Groups</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= group.name %></td>
+          <td>
+          <%= link_to 'Show', admin_group_path(group), class: "btn btn-success btn-sm", role: "button" %>
+          <%= link_to 'Edit', edit_admin_group_path(group), class: "btn btn-warning btn-sm", role: "button" %>
+          <%= link_to 'Destroy', admin_group_path(group), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", role: "button" %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Group', new_admin_group_path, class: "btn btn-danger btn-lg", role: "button" %>

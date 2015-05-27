@@ -8,9 +8,11 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-success", role: "button" %>
+    <%= link_to '<< Back', admin_lessons_path, class: "btn btn-primary go-right", role: "button" %>
   </div>
 <% end %>
 
+<br>
 
-<%= link_to 'Back', admin_lessons_path %>
+

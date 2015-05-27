@@ -25,7 +25,6 @@ class LessonsController < ApplicationController
   # POST /lessons.json
   def create
     @lesson = Lesson.new(lesson_params)
-
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to admin_lesson_path(@lesson), notice: 'Lesson was successfully created.' }
@@ -70,5 +69,9 @@ class LessonsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
       params.require(:lesson).permit(:name)
+    end
+
+    def teacher_lesson_params
+      params.require(:lesson).permit(:teacher_id, :lesson_id)
     end
 end
