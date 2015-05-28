@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527191948) do
+ActiveRecord::Schema.define(version: 20150528133648) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -51,9 +51,11 @@ ActiveRecord::Schema.define(version: 20150527191948) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "account_type"
+    t.integer  "group_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["group_id"], name: "index_users_on_group_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
