@@ -1,5 +1,7 @@
 class Teacher < User
-  has_many :teacher_lessons, dependent: :destroy
-  has_many :lessons, through: :teacher_lessons
-
+  has_many :group_teachers
+  has_many :groups, through: :group_teachers
+  has_many :students, through: :groups
+  has_many :group_lessons, through: :groups
+  has_many :lessons, through: :group_lessons
 end

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validate :group_only_for_user
+  validate :group_only_for_student
 
   def set_type
     if self.class == Admin
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def group_only_for_user
+  def group_only_for_student
     if self.group_id != nil && (self.class == Admin || self.class == Teacher)
       errors.add(:group_id,"Admin or Teacher can't be assigned to group")
     end

@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528133648) do
+ActiveRecord::Schema.define(version: 20150528171155) do
+
+  create_table "group_lessons", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "group_lessons", ["group_id"], name: "index_group_lessons_on_group_id"
+  add_index "group_lessons", ["lesson_id"], name: "index_group_lessons_on_lesson_id"
+
+  create_table "group_teachers", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "group_teachers", ["group_id"], name: "index_group_teachers_on_group_id"
+  add_index "group_teachers", ["teacher_id"], name: "index_group_teachers_on_teacher_id"
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -24,16 +44,6 @@ ActiveRecord::Schema.define(version: 20150528133648) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "teacher_lessons", force: :cascade do |t|
-    t.integer  "teacher_id"
-    t.integer  "lesson_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "teacher_lessons", ["lesson_id"], name: "index_teacher_lessons_on_lesson_id"
-  add_index "teacher_lessons", ["teacher_id"], name: "index_teacher_lessons_on_teacher_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
