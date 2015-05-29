@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'assignments/index'
+
   root 'static_pages#index'
 
   devise_for :users
