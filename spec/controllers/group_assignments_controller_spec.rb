@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AssignmentsController, type: :controller do
+RSpec.describe GroupAssignmentsController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

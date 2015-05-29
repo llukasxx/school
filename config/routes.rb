@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'assignments/index'
 
   root 'static_pages#index'
 
@@ -11,6 +10,13 @@ Rails.application.routes.draw do
     resources :students
     resources :lessons
     resources :groups
+    resources :group_assignments do
+      collection do
+        get '/teachers', to: 'group_assignments#teachers'
+        get '/students', to: 'group_assignments#students'
+        get '/lessons', to: 'group_assignments#lessons'
+      end
+    end
   end
   devise_for :teachers, :skip => :sessions
   devise_for :students, :skip => :sessions

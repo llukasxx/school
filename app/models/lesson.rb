@@ -1,5 +1,5 @@
 class Lesson < ActiveRecord::Base
-  has_many :group_lessons
+  has_many :group_lessons, dependent: :destroy
   has_many :groups, through: :group_lessons
   has_many :group_teachers, through: :groups
   has_many :teachers, through: :group_teachers

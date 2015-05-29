@@ -70,8 +70,4 @@ class LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(:name)
     end
-
-    def teacher_lesson_params
-      params.require(:lesson).permit(:teacher_id, :lesson_id)
-    end
 end

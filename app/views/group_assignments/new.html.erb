@@ -1,0 +1,11 @@
+<h2>New <%= "#{params[:type].capitalize}-Group assignment"%></h2>
+<%= simple_form_for @object, url: admin_group_assignments_path, method: :post do |f| %>
+
+	<% if @object.class == GroupTeacher %>
+		<%= f.input :teacher_id, collection: @teachers.map { |t| ["#{t.first_name} #{t.last_name}", t.id] }%>
+  	<%= f.input :group_id, collection: @groups.map { |g| ["#{g.name}", g.id] } %>
+	<% end %>
+
+	<%= f.button :submit, "Create" %>
+
+<% end %>
