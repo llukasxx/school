@@ -7,7 +7,7 @@ class Group < ActiveRecord::Base
   has_many :teachers, through: :group_teachers
 
   def self.group_teachers
-    Teacher.joins(:groups)
+    Teacher.joins(:groups).uniq.sort_by { |obj| obj.last_name }
   end
 
 end

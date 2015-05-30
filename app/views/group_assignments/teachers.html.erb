@@ -18,7 +18,7 @@
     <tbody>
     	<% @teachers.each do |t|%>
 	    	<tr>	
-		    	<td><%= link_to "#{t.first_name} #{t.last_name}", admin_teacher_path(t) %></td>
+		    	<td><%= link_to "#{t.last_name} #{t.first_name}", admin_teacher_path(t) %></td>
 		    	<td>
 		    		<% t.groups.each do |g|%>
 		    			<%= link_to g.name, admin_group_path(g)%>

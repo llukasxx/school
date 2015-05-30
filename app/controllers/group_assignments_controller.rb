@@ -17,7 +17,7 @@ class GroupAssignmentsController < ApplicationController
   end
 
   def teachers
-    @teachers = Group.group_teachers.uniq
+    @teachers = Group.group_teachers
   end
 
   def new_teacher_assignment
