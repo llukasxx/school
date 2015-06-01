@@ -1,0 +1,15 @@
+<%= link_to "<< Back", admin_group_assignments_path, class: "btn btn-primary btn-lg" %>
+
+<h2>New Teacher-To-Group Assignment</h2>
+
+
+<%= simple_form_for @group_teacher, url: create_group_teacher_admin_group_assignments_path, method: :post do |f| %>
+
+	<%= f.input :teacher_id, collection: @teachers.map { |t| ["#{t.last_name} #{t.first_name}", t.id] }%>
+	<%= f.input :group_id, collection: @groups.map { |g| ["#{g.name}", g.id] } %>
+
+	<%= f.button :submit, "Create" %>
+
+<% end %>
+
+<small>*Have in mind that you can't add teacher twice to the same group</small>

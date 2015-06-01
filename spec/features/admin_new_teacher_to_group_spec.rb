@@ -3,9 +3,9 @@ feature "admin" do
     teacher = create(:teacher)
     group = create(:group)
 
-    visit new_admin_group_assignment_path(type: "teacher")
+    visit add_teacher_admin_group_assignments_path
     within("#new_group_teacher") do
-      select "#{teacher.first_name} #{teacher.last_name}", from: "group_teacher_teacher_id"
+      select "#{teacher.last_name} #{teacher.first_name}", from: "group_teacher_teacher_id"
       select group.name, from: "group_teacher_group_id"
     end
 
@@ -21,9 +21,9 @@ feature "admin" do
 
     group_teacher = create(:group_teacher, teacher_id: teacher.id, group_id: group.id)
 
-    visit new_admin_group_assignment_path(type: "teacher")
+    visit add_teacher_admin_group_assignments_path
     within("#new_group_teacher") do
-      select "#{teacher.first_name} #{teacher.last_name}", from: "group_teacher_teacher_id"
+      select "#{teacher.last_name} #{teacher.first_name}", from: "group_teacher_teacher_id"
       select group.name, from: "group_teacher_group_id"
     end
 

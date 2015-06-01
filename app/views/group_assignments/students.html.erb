@@ -1,0 +1,30 @@
+<%= link_to "<< Back", admin_group_assignments_path, class: "btn btn-primary btn-lg" %>
+
+<%= link_to "Add assignment", add_student_admin_group_assignments_path, role: "botton", class: "btn btn-danger btn-lg go-right"%>
+<br> <br>
+<div class="panel panel-warning">
+  <!-- Default panel contents -->
+  <div class="panel-heading table-head">All student to group associations</div>
+
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    	<tr>
+	    	<th>Full name</th>
+	    	<th>Group</th>
+	    </tr>
+    </thead>
+
+    <tbody>
+    	<% @students_with_group.each do |s|%>
+	    	<tr>	
+		    	<td><%= link_to "#{s.last_name} #{s.first_name}", admin_student_path(s) %></td>
+		    	<td>
+		    		<%= link_to s.group.name, admin_group_path(s.group)%>
+		    	</td>
+		    </tr>
+	    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -15,6 +15,10 @@ Rails.application.routes.draw do
         get '/teachers', to: 'group_assignments#teachers'
         get '/students', to: 'group_assignments#students'
         get '/lessons', to: 'group_assignments#lessons'
+        get '/add_teacher', to: 'group_assignments#new_group_teacher'
+        post '/create_group_teacher', to: "group_assignments#create_group_teacher"
+        get '/add_student', to: "group_assignments#new_group_student"
+        patch '/create_group_student', to: "group_assignments#create_group_student"
       end
     end
   end

@@ -1,0 +1,15 @@
+<%= link_to "<< Back", admin_group_assignments_path, class: "btn btn-primary btn-lg" %>
+
+<h2>New Student-To-Group Assignment</h2>
+
+
+<%= simple_form_for :student, url: create_group_student_admin_group_assignments_path, method: :patch do |f| %>
+
+	<%= f.input :student_id, collection: @students.map { |s| ["#{s.last_name} #{s.first_name}", s.id] }%>
+	<%= f.input :group_id, collection: @groups.map { |g| ["#{g.name}", g.id] } %>
+
+	<%= f.button :submit, "Update" %>
+
+<% end %>
+
+<small>* Have in mind that student can be assigned to only one group, if selected student is already assigned to a group, you will overwrite his assignment.</small>
