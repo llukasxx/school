@@ -10,4 +10,8 @@ class Group < ActiveRecord::Base
     Teacher.joins(:groups).uniq.sort_by { |obj| obj.last_name }
   end
 
+  def self.group_lessons
+    Lesson.joins(:groups).uniq.sort_by { |obj| obj.name }
+  end
+
 end

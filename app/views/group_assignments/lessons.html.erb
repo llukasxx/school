@@ -1,0 +1,32 @@
+<%= link_to "<< Back", admin_group_assignments_path, class: "btn btn-primary btn-lg" %>
+
+<%= link_to "Add assignment", add_lesson_admin_group_assignments_path, role: "botton", class: "btn btn-success btn-lg go-right"%>
+<br> <br>
+<div class="panel panel-success">
+  <!-- Default panel contents -->
+  <div class="panel-heading table-head">All lesson to group associations</div>
+
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    	<tr>
+	    	<th>Lesson Name</th>
+	    	<th>Groups</th>
+	    </tr>
+    </thead>
+
+    <tbody>
+    	<% @lessons.each do |l|%>
+	    	<tr>	
+		    	<td><%= link_to l.name, admin_lesson_path(l) %></td>
+		    	<td>
+		    		<% l.groups.each do |g|%>
+		    			<%= link_to g.name, admin_group_path(g)%>
+		    		<% end %>
+		    	</td>
+		    </tr>
+	    <% end %>
+    </tbody>
+  </table>
+</div>

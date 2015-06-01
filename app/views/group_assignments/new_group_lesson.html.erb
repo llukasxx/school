@@ -1,0 +1,15 @@
+<%= link_to "<< Back", lessons_admin_group_assignments_path, class: "btn btn-primary btn-lg" %>
+
+<h2>New Lesson-To-Group Assignment</h2>
+
+
+<%= simple_form_for @group_lesson, url: create_group_lesson_admin_group_assignments_path, method: :post do |f| %>
+
+	<%= f.input :lesson_id, collection: @lessons.map { |l| [l.name, l.id] }%>
+	<%= f.input :group_id, collection: @groups.map { |g| [g.name, g.id] } %>
+
+	<%= f.button :submit, "Create" %>
+
+<% end %>
+
+<small>*Have in mind that you can't add lesson twice to the same group</small>
