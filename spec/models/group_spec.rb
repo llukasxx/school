@@ -16,5 +16,16 @@ RSpec.describe Group, type: :model do
     end
 
   end
+
+  describe "validations" do
+    it "can't let same teacher have 2 same groups" do
+      teacher = create(:teacher)
+      group = create(:group)
+      group_teacher = create(:group_teacher, teacher_id: teacher.id, group_id: group.id)
+      expect(group_teacher).to be_valid
+      group_teacher = build(:group_teacher, teacher_id: teacher.id, group_id: group.id)
+      expect(group_teacher).not_to be_valid
+    end
+  end
   
 end
