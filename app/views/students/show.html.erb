@@ -8,5 +8,9 @@
     <li class="list-group-item"><b>First name:</b> <%= @student.first_name %></li>
     <li class="list-group-item"><b>Last name:</b> <%= @student.last_name %></li>
     <li class="list-group-item"><b>Email:</b> <%= @student.email %></li>
+    <li class="list-group-item">
+    <b>Group:</b> 
+			<%= link_to(@student.group.name, admin_group_path(@student.group)) if !@student.group.nil? %>
+    </li>
   </ul>
 </div>

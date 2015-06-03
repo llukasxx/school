@@ -9,5 +9,13 @@
     <li class="list-group-item"><b>First name:</b> <%= @teacher.first_name %></li>
     <li class="list-group-item"><b>Last name:</b> <%= @teacher.last_name %></li>
     <li class="list-group-item"><b>Email:</b> <%= @teacher.email %></li>
+    <li class="list-group-item"><b>Groups:</b> <% @teacher.groups.each do |g| %>
+    																					   <%= link_to g.name, admin_group_path(g) %>
+    																					 <% end %>
+    </li>
+    <li class="list-group-item"><b>Lessons:</b> <% @teacher.lessons.each do |l| %>
+    																					   <%= link_to l.name, admin_lesson_path(l) %>
+    																					  <% end %>
+    </li>
   </ul>
 </div>

@@ -6,9 +6,13 @@
 	</div>
 	<ul class="list-group">
 	  <li class="list-group-item">Name: <%= @lesson.name%></li>
+	  <li class="list-group-item">Groups: <% @lesson.groups.each do |g| %>
+	  																		  <%= link_to g.name, admin_group_path(g) %>
+	  																		<% end %>
+	  </li>
 	  <li class="list-group-item">
 	  	Teachers: <% @lesson.teachers.each do |l|%>
-	  							<%= link_to "#{l.first_name}, #{l.last_name}", admin_teacher_path(l)%>
+	  							<%= link_to "#{l.first_name} #{l.last_name},", admin_teacher_path(l)%>
 	  						<% end %>
 	  </li>
 	</ul>
